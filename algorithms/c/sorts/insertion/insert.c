@@ -2,7 +2,7 @@
 #include <string.h>
 
 // simple int array version
-void insert_sort(int* arr, int size)
+void insertion_sort_int(int* arr, int size)
 {
 	if (arr == NULL)
 		return;
@@ -18,9 +18,9 @@ void insert_sort(int* arr, int size)
 }
 
 // generalized version
-void insert_sort2(void* arr, int size, int count, int (*less)(void*, void*))
+void insertion_sort(void* arr, int size, int count, int (*less)(void*, void*))
 {
-	if (arr == NULL || less == NULL)
+	if (arr == NULL || size <= 0 || less == NULL)
 		return;
 
 	int i, j;

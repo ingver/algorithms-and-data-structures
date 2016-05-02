@@ -13,8 +13,8 @@ void bubble_sort(int* arr, int arr_size)
 }
 
 // template version
-template <typename LessThanComparable>
-void bubble_sort(LessThanComparable* arr, int arr_size)
+template <typename T>
+void bubble_sort(T* arr, int arr_size)
 {
 	for (int i = 0; i < arr_size; ++i)
 		for (int j = 0; j < arr_size - i - 1; ++j)

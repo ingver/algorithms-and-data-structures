@@ -2,7 +2,7 @@
 #include <string.h>
 
 // simple int array version
-void bubble_sort(int* arr, int size)
+void bubble_sort_int(int* arr, int size)
 {
 	int i, j;
 	for (i = 0; i < size; ++i)
@@ -24,13 +24,20 @@ void swap(void* a, void* b, int size)
 }
 
 // generalized version
-void sort_bubble(void* arr, int size, int count, int (*less)(void*, void*))
+void bubble_sort(void* arr, int size, int count, int (*cmp)(void*, void*))
 {
+// macro to get easier element of an array
+#define elem(idx) (arr + size*(idx))
+
+	if (arr == NULL || size <= 0 || cmp == NULL)
+		return;
+
 	int i, j;
-	char* array = (char*) arr;
 	for (i = 0; i < count; ++i)
 		for (j = 0; j < count - i - 1; ++j)
-			if (less(arr + size*(j+1), arr + size*j)) {
+			if (cmp(arr + size*(j+1), arr + size*j)) {
 				swap(arr + size*j, arr + size*(j+1), size);
 			}
+
+#undef elem
 }

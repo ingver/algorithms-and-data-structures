@@ -1,4 +1,4 @@
-def insert_sort(seq):
+def insertion_sort(seq):
     for i in range(1, len(seq)):
         key = seq[i]
         j = i-1
