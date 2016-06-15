@@ -1,9 +1,11 @@
-#include "../sorts.h"
+#include <utility> // for std::swap
 
-void insertion_sort(int* arr, int size)
+template <typename T>
+void insertion_sort(T arr[], int size)
 {
 	for (int i = 1; i < size; ++i) {
-		int key = arr[i], j;
+		int j;
+		T key = arr[i];
 		for (j = i-1; j >= 0 && arr[j] > key; --j) {
 			arr[j+1] = arr[j];
 		}
